@@ -1,0 +1,212 @@
+# 
+# SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+
+DEVICE_PATH := device/motorola/portov
+
+# A/B
+AB_OTA_UPDATER := true
+
+AB_OTA_PARTITIONS += \
+    boot \
+    dtbo \
+    init_boot \
+    product \
+    recovery \
+    system \
+    system_dlkm \
+    system_ext \
+    vbmeta \
+    vbmeta_system \
+    vendor \
+    vendor_boot \
+    vendor_dlkm
+    
+# Audio
+AUDIO_FEATURE_ENABLED_DLKM := true
+AUDIO_FEATURE_ENABLED_EXTENDED_COMPRESS_FORMAT := true
+AUDIO_FEATURE_ENABLED_GKI := true
+AUDIO_FEATURE_ENABLED_INSTANCE_ID := true
+AUDIO_FEATURE_ENABLED_MCS := true
+AUDIO_FEATURE_ENABLED_SVA_MULTI_STAGE := true
+BOARD_SUPPORTS_OPENSOURCE_STHAL := true
+BOARD_SUPPORTS_SOUND_TRIGGER := true
+BOARD_USES_ALSA_AUDIO := true
+TARGET_PROVIDES_AUDIO_HAL := true
+TARGET_PROVIDES_LIBAR_PAL := true
+
+# Architecture
+TARGET_ARCH := arm64
+TARGET_ARCH_VARIANT := armv8-2a-dotprod
+TARGET_CPU_ABI := arm64-v8a
+TARGET_CPU_VARIANT := generic
+TARGET_CPU_VARIANT_RUNTIME := kryo385
+
+# Bootloader
+TARGET_BOOTLOADER_BOARD_NAME := portov
+TARGET_NO_BOOTLOADER := true
+
+# Broken
+BUILD_BROKEN_DUP_RULES := true
+
+# Filesystem
+TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/configs/config.fs
+
+# Init Boot
+BOARD_INIT_BOOT_HEADER_VERSION := 4
+BOARD_MKBOOTIMG_INIT_ARGS += --header_version $(BOARD_INIT_BOOT_HEADER_VERSION)
+
+# Kernel
+BOARD_KERNEL_BASE        := 0x00000000
+BOARD_KERNEL_PAGESIZE    := 0x00001000
+BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
+BOARD_RAMDISK_OFFSET     := 0x02000000
+BOARD_BOOT_HEADER_VERSION := 4
+
+BOARD_RAMDISK_USE_LZ4 := true
+BOARD_INCLUDE_DTB_IN_BOOTIMG := true
+BOARD_USES_GENERIC_KERNEL_IMAGE := true
+BOARD_KERNEL_IMAGE_NAME := Image.gz
+BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT := true
+
+BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom androidboot.memcg=1 androidboot.usbcontroller=a600000.dwc3 androidboot.load_modules_parallel=true
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+
+BOARD_SYSTEM_KERNEL_MODULES := $(wildcard $(DEVICE_PATH)-kernel/system_dlkm/*.ko)
+BOARD_SYSTEM_KERNEL_MODULES_LOAD := $(patsubst %,$(DEVICE_PATH)-kernel/vendor_dlkm/%,$(shell cat $(DEVICE_PATH)-kernel/system_dlkm/modules.load))
+BOARD_VENDOR_KERNEL_MODULES := $(wildcard $(DEVICE_PATH)-kernel/vendor_dlkm/*.ko)
+BOARD_VENDOR_KERNEL_MODULES_LOAD := $(patsubst %,$(DEVICE_PATH)-kernel/vendor_dlkm/%,$(shell cat $(DEVICE_PATH)-kernel/vendor_dlkm/modules.load))
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES := $(wildcard $(DEVICE_PATH)-kernel/vendor_ramdisk/*.ko)
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(patsubst %,$(DEVICE_PATH)-kernel/vendor_dlkm/%,$(shell cat $(DEVICE_PATH)-kernel/vendor_ramdisk/modules.load))
+BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(patsubst %,$(DEVICE_PATH)-kernel/vendor_dlkm/%,$(shell cat $(DEVICE_PATH)-kernel/vendor_ramdisk/modules.load.recovery))
+BOOT_KERNEL_MODULES := $(BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD) $(BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD)
+
+BOARD_MKBOOTIMG_ARGS := --header_version $(BOARD_BOOT_HEADER_VERSION)
+
+# Prebuilt Kernel
+TARGET_KERNEL_CONFIG := portov
+INLINE_KERNEL_BUILDING := true
+TARGET_FORCE_PREBUILT_KERNEL := true
+TARGET_NO_KERNEL_OVERRIDE := true
+TARGET_NO_KERNEL := false
+BOARD_KERNEL_BINARIES := kernel
+TARGET_KERNEL_VERSION := 6.6
+TARGET_KERNEL_SOURCE := $(DEVICE_PATH)-kernel/kernel-headers
+TARGET_PREBUILT_DTB := $(DEVICE_PATH)-kernel/dtb.img
+BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)-kernel/dtbo.img
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)-kernel/kernel
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)-kernel/dtb.img:$(TARGET_COPY_OUT)/dtb.img \
+    $(DEVICE_PATH)-kernel/kernel:kernel
+
+# Partitions
+-include vendor/lineage/config/BoardConfigReservedSize.mk
+BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 32)
+BOARD_BOOTIMAGE_PARTITION_SIZE := 100663296
+BOARD_DTBOIMG_PARTITION_SIZE := 24117248
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 134217728
+BOARD_INIT_BOOT_IMAGE_PARTITION_SIZE := 8388608
+BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 100663296
+BOARD_SUPER_PARTITION_SIZE := 7516192768
+BOARD_SUPER_PARTITION_GROUPS := motorola_dynamic_partitions
+BOARD_MOTOROLA_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_dlkm system_ext vendor vendor_dlkm product
+BOARD_MOTOROLA_DYNAMIC_PARTITIONS_SIZE := 7511998464
+
+BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_SYSTEM_DLKMIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_VENDOR_DLKMIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := ext4
+
+TARGET_COPY_OUT_ODM := vendor/odm
+TARGET_COPY_OUT_SYSTEM_DLKM := system_dlkm
+TARGET_COPY_OUT_SYSTEM_EXT := system_ext
+TARGET_COPY_OUT_PRODUCT := product
+TARGET_COPY_OUT_VENDOR := vendor
+TARGET_COPY_OUT_VENDOR_DLKM := vendor_dlkm
+
+BOARD_USES_METADATA_PARTITION := true
+
+# Platform
+BOARD_USES_QCOM_HARDWARE := true
+TARGET_BOARD_PLATFORM := parrot66
+
+BOARD_ROOT_EXTRA_SYMLINKS := \
+    /vendor/fsg:/fsg
+
+# Properties
+TARGET_PRODUCT_PROP += $(DEVICE_PATH)/configs/props/product.prop
+TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/configs/props/system_ext.prop
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/configs/props/vendor.prop
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/configs/props/system.prop
+TARGET_ODM_PROP += $(DEVICE_PATH)/configs/props/odm.prop
+
+# Recovery
+BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true
+TARGET_RECOVERY_UI_MARGIN_HEIGHT := 90
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/init/fstab.qcom
+TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
+TARGET_USERIMAGES_USE_F2FS := true
+
+# RIL
+ENABLE_VENDOR_RIL_SERVICE := true
+
+# Security
+BOOT_SECURITY_PATCH := 2025-08-01
+VENDOR_SECURITY_PATCH := $(BOOT_SECURITY_PATCH)
+
+# SELinux
+include device/qcom/sepolicy_vndr/SEPolicy.mk
+include hardware/motorola/sepolicy/qti/SEPolicy.mk
+
+# SKU
+ODM_MANIFEST_SKUS += d dn dne n ne
+ODM_MANIFEST_D_FILES := $(DEVICE_PATH)/vintf/sku/manifest_d.xml
+ODM_MANIFEST_DN_FILES := $(DEVICE_PATH)/vintf/sku/manifest_dn.xml
+ODM_MANIFEST_DNE_FILES := $(DEVICE_PATH)/vintf/sku/manifest_dne.xml
+ODM_MANIFEST_N_FILES := $(DEVICE_PATH)/vintf/sku/manifest_n.xml
+ODM_MANIFEST_NE_FILES := $(DEVICE_PATH)/vintf/sku/manifest_ne.xml
+
+# Verified Boot
+BOARD_AVB_ENABLE := true
+BOARD_AVB_ALGORITHM := SHA256_RSA2048
+BOARD_AVB_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --set_hashtree_disabled_flag
+BOARD_AVB_ROLLBACK_INDEX := 8
+BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := 8
+
+BOARD_AVB_VBMETA_SYSTEM := system product system_ext
+BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := $(BOARD_AVB_ALGORITHM)
+BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := $(BOARD_AVB_KEY_PATH)
+BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := 8
+BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 2
+
+# Vintf
+PRODUCT_ENFORCE_VINTF_MANIFEST := true
+
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
+    $(DEVICE_PATH)/vintf/compatibility_matrix.xml \
+    hardware/qcom-caf/common/vendor_framework_compatibility_matrix.xml
+DEVICE_MATRIX_FILE := hardware/qcom-caf/common/compatibility_matrix_aidl.xml
+DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/vintf/manifest_parrot_ss.xml
+
+# WiFi
+BOARD_WLAN_DEVICE := qcwcn
+BOARD_HOSTAPD_DRIVER := NL80211
+BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
+BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB_EVENT := "ON"
+CONFIG_IEEE80211AX := true
+WIFI_DRIVER_STATE_CTRL_PARAM := "/dev/wlan"
+WIFI_DRIVER_STATE_OFF := "OFF"
+WIFI_DRIVER_STATE_ON := "ON"
+WIFI_HIDL_FEATURE_AWARE := true
+WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
+WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
+WPA_SUPPLICANT_VERSION := VER_0_8_X
+
+# Inherit the proprietary files
+include vendor/motorola/portov/BoardConfigVendor.mk

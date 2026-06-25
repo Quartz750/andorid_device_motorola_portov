@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- Flag indicating whether we should enable smart battery. -->
+    <bool name="config_smart_battery_available">true</bool>
+
+    <!-- When true use the linux /dev/input/event subsystem to detect the switch changes
+         on the headphone/microphone jack. When false use the older uevent framework. -->
+    <bool name="config_useDevInputEventForAudioJack">true</bool>
+
+    <!-- An array of device capabilities defined by GSMA SGP.22 v2.0.
+         The first item is the capability name that the device supports. The second item is the
+         major version. The minor and revision versions are default to 0s.
+         The device capabilities and their definition in the spec are:
+             gsm : gsmSupportedRelease
+             utran : utranSupportedRelease
+             cdma1x : cdma2000onexSupportedRelease
+             hrpd : cdma2000hrpdSupportedRelease
+             ehrpd : cdma2000ehrpdSupportedRelease
+             eutran : eutranSupportedRelease
+             nfc : contactlessSupportedRelease
+             crl : rspCrlSupportedVersion
+             nrepc : nrEpcSupportedRelease
+             nr5gc : nr5gcSupportedRelease
+             eutran5gc : eutran5gcSupportedRelease
+    -->
+    <string-array name="config_telephonyEuiccDeviceCapabilities" translatable="false">
+        <item>gsm,9</item>
+        <item>utran,9</item>
+        <item>eutran,15</item>
+    </string-array>
+
+    <!-- Default files to pin via Pinner Service -->
+    <string-array name="config_defaultPinnerServiceFiles" translatable="false">
+        <item>"/apex/com.android.art/javalib/core-oj.jar"</item>
+        <item>"/apex/com.android.art/javalib/core-libart.jar"</item>
+        <item>"/apex/com.android.media/javalib/updatable-media.jar"</item>
+        <item>"/system/framework/framework.jar"</item>
+        <item>"/system/framework/services.jar"</item>
+        <item>"/system/bin/surfaceflinger"</item>
+        <item>"/system_ext/priv-app/SystemUI/SystemUI.apk"</item>
+        <item>"/vendor/lib64/libcamxexternalformatutils.so"</item>
+        <item>"/vendor/lib64/libipebpsstriping.so"</item>
+        <item>"/vendor/lib64/libCB.so"</item>
+        <item>"/vendor/lib64/libgsl.so"</item>
+    </string-array>
+
+    <!-- Note: This config is deprecated, use config_pinnerCameraPinBytes instead.
+         True if camera app should be pinned via Pinner Service -->
+    <bool name="config_pinnerCameraApp">true</bool>
+</resources>
