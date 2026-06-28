@@ -1723,14 +1723,14 @@ vendor/etc/init/init_thermal-engine-v2.rc
 vendor/lib64/libthermalclient.so
 
 # Thermal configs
-vendor/etc/thermal-engine-mumba-auto.conf
-vendor/etc/thermal-engine-mumba-camera.conf
-vendor/etc/thermal-engine-mumba-game-perf.conf
-vendor/etc/thermal-engine-mumba-ngb.conf
-vendor/etc/thermal-engine-mumba-perf.conf
-vendor/etc/thermal-engine-mumba-skynet.conf
-vendor/etc/thermal-engine-mumba-tiktok.conf
-vendor/etc/thermal-engine-mumba.conf
+vendor/etc/thermal-engine-portov-auto.conf
+vendor/etc/thermal-engine-portov-camera.conf
+vendor/etc/thermal-engine-portov-game-perf.conf
+vendor/etc/thermal-engine-portov-ngb.conf
+vendor/etc/thermal-engine-portov-perf.conf
+vendor/etc/thermal-engine-portov-skynet.conf
+vendor/etc/thermal-engine-portov-tiktok.conf
+vendor/etc/thermal-engine-portov.conf
 vendor/etc/thermal-engine.conf
 
 # Time services
