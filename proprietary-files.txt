@@ -12,8 +12,8 @@ vendor/etc/acdbdata/nn_ns_models/fai__4.8.4_0.0__3.0.0_0.0__eai_1.43_enpu2.pmd
 vendor/etc/acdbdata/nn_vad_models/fai__3.0.0_0.0__eai_1.36_enpu2.pmd
 vendor/etc/acdbdata/parrot_qrd/QRD_acdb_cal.acdb
 vendor/etc/acdbdata/parrot_qrd/QRD_workspaceFileXml.qwsp
-vendor/etc/acdbdata/parrot_qrd_retin/QRD_acdb_cal.acdb
-vendor/etc/acdbdata/parrot_qrd_retin/QRD_workspaceFileXml.qwsp
+#vendor/etc/acdbdata/parrot_qrd_retin/QRD_acdb_cal.acdb
+#vendor/etc/acdbdata/parrot_qrd_retin/QRD_workspaceFileXml.qwsp
 
 # ADSP
 vendor/bin/adsprpcd
@@ -61,7 +61,6 @@ vendor/lib64/libeai_float.so
 vendor/lib64/libext_tflite_c.so
 vendor/lib64/liblistensoundmodel2vendor.so
 vendor/lib64/liblistensoundmodelaidl.so
-vendor/lib64/libspatializerparamstorage.so
 vendor/lib64/libmcs.so
 vendor/lib64/libpal_net_if.so
 vendor/lib64/libqtigefar.so;DISABLE_DEPS
@@ -71,8 +70,8 @@ vendor/lib64/vendor.qti.hardware.ListenSoundModelAidl-V1-ndk.so
 vendor/etc/audio/sku_parrot/audio_effects_config_stub.xml
 vendor/etc/audio/sku_parrot/mixer_paths_parrot_qrd.xml
 vendor/etc/audio/sku_parrot/resourcemanager_parrot_qrd.xml
-vendor/etc/audio/sku_parrotlite/mixer_paths_parrot_qrd.xml
-vendor/etc/audio/sku_parrotlite/resourcemanager_parrot_qrd.xml
+vendor/etc/audio/sku_parrot/mixer_paths_parrot_qrd.xml
+vendor/etc/audio/sku_parrot/resourcemanager_parrot_qrd.xml
 vendor/etc/audio_effects.xml
 vendor/etc/audio_ext_spkr.conf
 vendor/etc/audio_policy_volumes.xml
@@ -110,7 +109,6 @@ vendor/lib64/soundfx/libqcompostprocbundle.so;DISABLE_DEPS
 vendor/lib64/soundfx/libqcomvisualizer.so;DISABLE_DEPS
 vendor/lib64/soundfx/libqcomvoiceprocessing.so;DISABLE_DEPS
 vendor/lib64/soundfx/libreverbaidl.so;DISABLE_DEPS
-vendor/lib64/soundfx/libswspatializeraidl.so;DISABLE_DEPS
 vendor/lib64/soundfx/libvisualizeraidl.so;DISABLE_DEPS
 vendor/lib64/soundfx/libvolumelistener.so;DISABLE_DEPS
 
@@ -196,10 +194,6 @@ vendor/lib64/libanc_hdr.so
 vendor/lib64/libanc_hdr_adapter_front_main.so
 vendor/lib64/libanc_hdr_adapter_rear_main.so
 vendor/lib64/libanc_hdr_adapter_rear_uw.so
-vendor/lib64/libanc_sn.so
-vendor/lib64/libanc_sn_adapter_front_main.so
-vendor/lib64/libanc_sn_adapter_rear_main.so
-vendor/lib64/libanc_sn_adapter_rear_uw.so
 vendor/lib64/libarcsoft_chi_utils.so
 vendor/lib64/libarcsoft_distortion_correction.so
 vendor/lib64/libarcsoft_portrait_distortion_correction.so
@@ -230,7 +224,6 @@ vendor/lib64/libmmcamera_pdpc.so
 vendor/lib64/libmot_afd.so
 vendor/lib64/libmot_engine_settings.so
 vendor/lib64/libmotcameramodulemonitor.so
-vendor/lib64/libmotoisdataqueue.so
 vendor/lib64/libmpbase.so
 vendor/lib64/libopencv.so
 vendor/lib64/libopencv3a.so
@@ -310,38 +303,23 @@ vendor/lib64/com.qualcomm.qti.mcx.usecase.extension.so
 
 # Camera - jiigan
 vendor/etc/jiigan/cache_front_main
-vendor/etc/jiigan/cache_front_main_sn
 vendor/etc/jiigan/cache_rear_main
-vendor/etc/jiigan/cache_rear_main_sn
 vendor/etc/jiigan/cache_rear_uw
-vendor/etc/jiigan/cache_rear_uw_sn
 vendor/etc/jiigan/dgain_mask_front_main.bin
 vendor/etc/jiigan/dgain_mask_rear_main.bin
 vendor/etc/jiigan/dgain_mask_rear_uw.bin
 vendor/etc/jiigan/effect_param_front_main.json
-vendor/etc/jiigan/effect_param_front_main_sn.json
 vendor/etc/jiigan/effect_param_rear_main.json
-vendor/etc/jiigan/effect_param_rear_main_sn.json
 vendor/etc/jiigan/effect_param_rear_uw.json
-vendor/etc/jiigan/effect_param_rear_uw_sn.json
 vendor/etc/jiigan/hc_opr_lite_cache_front_main
-vendor/etc/jiigan/hc_opr_lite_cache_front_main_sn
 vendor/etc/jiigan/hc_opr_lite_cache_rear_main
-vendor/etc/jiigan/hc_opr_lite_cache_rear_main_sn
 vendor/etc/jiigan/hc_opr_lite_cache_rear_uw
-vendor/etc/jiigan/hc_opr_lite_cache_rear_uw_sn
 vendor/etc/jiigan/siq_ocl_cache_front_main
-vendor/etc/jiigan/siq_ocl_cache_front_main_sn
 vendor/etc/jiigan/siq_ocl_cache_rear_main
-vendor/etc/jiigan/siq_ocl_cache_rear_main_sn
 vendor/etc/jiigan/siq_ocl_cache_rear_uw
-vendor/etc/jiigan/siq_ocl_cache_rear_uw_sn
 vendor/etc/jiigan/superiq_model_front_main
-vendor/etc/jiigan/superiq_model_front_main_sn
 vendor/etc/jiigan/superiq_model_rear_main
-vendor/etc/jiigan/superiq_model_rear_main_sn
 vendor/etc/jiigan/superiq_model_rear_uw
-vendor/etc/jiigan/superiq_model_rear_uw_sn
 
 # Camera - camx
 vendor/lib64/camx.device-impl.so
@@ -676,10 +654,10 @@ vendor/lib64/hw/jiiov.fingerprint.jv0103.default.so
 vendor/lib64/vendor.qti.hardware.fingerprint@1.0.so
 
 # HotwordEnrollment - RETCN dont have these
-product/priv-app/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND.apk
-product/priv-app/HotwordEnrollmentYGoogleHEXAGON_WIDEBAND/HotwordEnrollmentYGoogleHEXAGON_WIDEBAND.apk
-system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml
-system_ext/framework/com.android.hotwordenrollment.common.util.jar
+# product/priv-app/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND/ HotwordEnrollmentXGoogleHEXAGON_WIDEBAND.apk
+# product/priv-app/HotwordEnrollmentYGoogleHEXAGON_WIDEBAND/HotwordEnrollmentYGoogleHEXAGON_WIDEBAND.apk
+# system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml
+# system_ext/framework/com.android.hotwordenrollment.common.util.jar
 
 # Input
 system/usr/keylayout/gpio-keys.kl:vendor/usr/keylayout/gpio-keys.kl
@@ -746,8 +724,8 @@ vendor/lib64/rfs/dsp/libmctfengine_skel.so
 vendor/lib64/rfs/dsp/libsw2dlut_dsp_skel.so
 
 # Euicc - RETCN dont have these
-product/etc/permissions/privapp-permissions-com.google.android.euicc.xml
-product/priv-app/EuiccGoogle/EuiccGoogle.apk;PRESIGNED
+# product/etc/permissions/privapp-permissions-com.google.android.euicc.xml
+# product/priv-app/EuiccGoogle/EuiccGoogle.apk;PRESIGNED
 
 # FASTCV
 vendor/lib64/libfastcvdsp_stub.so
@@ -989,12 +967,12 @@ vendor/lib64/lib_ifaa_product.so
 vendor/lib64/vendor.qti.hardware.qdutils_disp@1.0.so
 
 # Rpmb
-vendor/bin/hw/motorola.hardware.rpmb-service
+# vendor/bin/hw/motorola.hardware.rpmb-service
 vendor/bin/rpmbClient
-vendor/etc/init/motorola.hardware.rpmb.service.rc
-vendor/etc/vintf/manifest/manifest_IMoto_AIDL_Rpmb.xml
+# vendor/etc/init/motorola.hardware.rpmb.service.rc
+# vendor/etc/vintf/manifest/manifest_IMoto_AIDL_Rpmb.xml
 vendor/lib64/librpmb.so
-vendor/lib64/motorola.hardware.rpmb-V1-ndk.so
+# vendor/lib64/motorola.hardware.rpmb-V1-ndk.so
 
 # Media
 system_ext/lib64/libmmosal.so
@@ -1118,12 +1096,12 @@ system/etc/permissions/com.motorola.frameworks.core.addon.xml
 system/framework/com.motorola.frameworks.core.addon.jar 
 system/framework/moto-settings.jar 
 system/framework/moto-core_services.jar 
-system/app/MotoDolbyDax3/MotoDolbyDax3.apk;OVERRIDES=MusicFX 
+# system/app/MotoDolbyDax3/MotoDolbyDax3.apk;OVERRIDES=MusicFX 
 system_ext/priv-app/daxService/daxService.apk 
 system/etc/permissions/moto-checkin.xml 
-system/etc/permissions/com.motorola.dolby.dolbyui.dax3.features.xml 
-product/etc/default-permissions/default-permissions-com.motorola.dolby.dolbyui.xml 
-system/etc/sysconfig/hiddenapi-whitelist-com.motorola.dolby.dolbyui.xml 
+# system/etc/permissions/com.motorola.dolby.dolbyui.dax3.features.xml 
+# product/etc/default-permissions/default-permissions-com.motorola.dolby.dolbyui.xml 
+# system/etc/sysconfig/hiddenapi-whitelist-com.motorola.dolby.dolbyui.xml 
 system_ext/etc/permissions/com.dolby.daxservice.xml 
 system/app/MotoSignature2App/MotoSignature2App.apk 
 system/app/MotoSignatureApp/MotoSignatureApp.apk 
@@ -1136,7 +1114,6 @@ vendor/bin/hw/vendor.dolby.dms.service
 vendor/bin/hw/vendor.dolby.media.c2-default-service-dax
 vendor/etc/dolby/dax-default-spatializer.xml
 vendor/etc/dolby/dax-default.xml
-vendor/etc/dolby/dax-default_retin.xml
 vendor/etc/dolby/dax-moto_1.xml
 vendor/etc/dolby/dax-moto_2.xml
 vendor/etc/dolby/dax-moto_3.xml
@@ -1394,7 +1371,6 @@ vendor/etc/data/nicm_config.xml
 vendor/etc/data/tlpd_oem_config.xml
 vendor/etc/init/dataadpl.rc
 vendor/etc/init/dataqti.rc
-vendor/etc/init/hw/init.mmi.services.override.rc
 vendor/etc/init/init.embmssl_server.rc
 vendor/etc/init/nicmd.rc
 vendor/etc/init/port-bridge.rc

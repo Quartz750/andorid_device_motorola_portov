@@ -10,7 +10,7 @@ allow charge_only chargeonly_data_file:file create_file_perms;
 allow charge_only kmsg_device:chr_file rw_file_perms;
 
 # Read access to pseudo filesystems.
-r_dir_file(charge_only, sysfs_type)
+# r_dir_file(charge_only, sysfs_type)
 r_dir_file(charge_only, rootfs)
 r_dir_file(charge_only, cgroup)
 
@@ -21,8 +21,8 @@ allow charge_only self:netlink_kobject_uevent_socket create_socket_perms_no_ioct
 wakelock_use(charge_only)
 
 # Allow access to sysfs
-allow charge_only sysfs:dir { read open };
-allow charge_only sysfs:file rw_file_perms;
+# allow charge_only sysfs:dir { read open };
+# allow charge_only sysfs:file rw_file_perms;
 
 # Allow access to wakelock sysfs
 allow charge_only sysfs_wake_lock:file rw_file_perms;

@@ -6,9 +6,7 @@
 filegroup {
     name: "rildb_config_sql_files",
     srcs: [
-        "config/15.0_config.sql",
         "config/15.1_config.sql",
-        "config/15.2_config.sql",
     ],
 }
 
@@ -18,6 +16,7 @@ genrule {
     srcs: [
         "//vendor/motorola/portov:proprietary_rildb_config_sql_files",
         "//vendor/motorola/portov:proprietary_rildb_other_sql_files",
+        "//vendor/motorola/portov:proprietary_rildb_ecc_sql_files",
         ":rildb_config_sql_files",
     ],
     tools: [
@@ -34,8 +33,6 @@ prebuilt_etc {
     relative_install_path: "qcril_database",
     vendor: true,
     required: [
-        "15.0_config.sql",
         "15.1_config.sql",
-        "15.2_config.sql",
     ],
 }

@@ -1,13 +1,8 @@
 prebuilt_etc{
-	name: "charger_fw_fstab.qti",
-	src: "charger_fw_fstab.qti",
-	vendor: true,
-}
-
-prebuilt_etc{
 	name: "fstab.qcom",
 	src: "fstab.qcom",
 	vendor: true,
+	vendor_ramdisk_available: true,
 }
 
 prebuilt_etc{
@@ -16,59 +11,58 @@ prebuilt_etc{
 	vendor: true,
 }
 
-
 prebuilt_etc{
 	name: "init.qcom.rc",
 	src: "init.qcom.rc",
 	sub_dir: "init/hw",
-	vendor: true,
+	soc_specific: true,
 }
 
 prebuilt_etc{
 	name: "init.recovery.qcom.rc",
 	src: "init.recovery.qcom.rc",
 	sub_dir: "init",
-	vendor: true,
+	recovery: true,
 }
 
 prebuilt_etc{
 	name: "init.target.rc",
 	src: "init.target.rc",
 	sub_dir: "init/hw",
-	vendor: true,
+	soc_specific: true,
 }
 
 prebuilt_etc{
 	name: "ueventd-odm.rc",
 	filename: "ueventd.rc",
 	src: "ueventd-odm.rc",
-	vendor: true,
+	device_specific: true,
 }
 
 prebuilt_etc{
 	name: "ueventd.qcom.rc",
-	filename: "ueventd.rc"
+	filename: "ueventd.rc",
 	src: "ueventd.qcom.rc",
-	vendor: true,
+	soc_specific: true,
 }
 
 prebuilt_etc{
 	name: "init.vendor.st21nfc.rc",
 	src: "init.vendor.st21nfc.rc",
 	sub_dir: "init/hw",
-	vendor: true,
+	soc_specific: true,
 }
 
 prebuilt_etc{
 	name: "init.mmi.overlay.rc",
 	src: "init.mmi.overlay.rc",
 	sub_dir: "init/hw",
-	vendor: true,
+	soc_specific: true,
 }
 
 prebuilt_etc{
 	name: "init.mmi.rc",
 	src: "init.mmi.rc",
 	sub_dir: "init/hw",
-	vendor: true,
+	soc_specific: true,
 }

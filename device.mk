@@ -81,7 +81,7 @@ PRODUCT_PACKAGES += \
     libreverbaidl \
     libvisualizeraidl
 
-AUDIO_HAL_DIR := hardware/qcom-caf/sm8750/audio/primary-hal
+AUDIO_HAL_DIR := hardware/qcom-caf/sm8450-6.6/audio/primary-hal
 CONFIG_HAL_SRC_DIR := $(AUDIO_HAL_DIR)/configs/parrot
 
 # Audio - QCOM HAL config files
@@ -190,8 +190,8 @@ PRODUCT_PACKAGES += \
 # =============================================================================
 # Fingerprint
 # =============================================================================
-PRODUCT_PACKAGES += \
-    libshim_fp
+# PRODUCT_PACKAGES += \
+#    libshim_fp
 
 # Fingerprint - Hardware feature permissions
 PRODUCT_COPY_FILES += \
@@ -200,7 +200,7 @@ PRODUCT_COPY_FILES += \
 # =============================================================================
 # FM
 # =============================================================================
-$(call inherit-product, vendor/motorola/MotoFm/common.mk)
+# $(call inherit-product, vendor/motorola/MotoFm/common.mk)
 
 # =============================================================================
 # GNSS
@@ -227,7 +227,7 @@ PRODUCT_COPY_FILES += \
 # =============================================================================
 PRODUCT_PACKAGES += \
     android.hardware.health-service.qti \
-    android.hardware.health-service.qti_recovery
+    android.hardware.health-service.qti_recovery 
 
 # =============================================================================
 # IPACM
@@ -240,31 +240,18 @@ PRODUCT_PACKAGES += \
 # =============================================================================
 # Init
 # =============================================================================
-# Init - fstab (first_stage_ramdisk)
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/init/etc/fstab.qcom:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.qcom
-
-# Init - fstab (vendor etc)
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/init/etc/fstab.qcom:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.qcom \
-    $(LOCAL_PATH)/init/etc/fstab.qcom.zram:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.qcom.zram \
-    $(LOCAL_PATH)/init/etc/ueventd.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc
-
-# Init - init rc scripts (hw)
-$(foreach f,$(wildcard $(LOCAL_PATH)/init/etc/init/hw/*.rc),\
-        $(eval PRODUCT_COPY_FILES += $(f):$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/$(notdir $f)))
-
-# Init - init rc scripts
-$(foreach f,$(wildcard $(LOCAL_PATH)/init/etc/init/*.rc),\
-        $(eval PRODUCT_COPY_FILES += $(f):$(TARGET_COPY_OUT_VENDOR)/etc/init/$(notdir $f)))
-
-# Init - shell scripts
-$(foreach f,$(wildcard $(LOCAL_PATH)/init/bin/*.sh),\
-        $(eval PRODUCT_COPY_FILES += $(f):$(TARGET_COPY_OUT_VENDOR)/bin/$(notdir $f)))
-
-# Init - recovery rc
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/init/init.recovery.qcom.rc:recovery/root/init.recovery.qcom.rc
+PRODUCT_PACKAGES += \
+	fstab.qcom \
+	fstab.qcom.zram \
+	fstab.qcom.vendor_ramdisk \
+	init.mmi.overlay.rc \
+	init.mmi.rc \
+	init.qcom.rc \
+	init.recovery.qcom.rc \
+	init.target.rc \
+	init.vendor.st21nfc.rc \
+	ueventd.qcom.rc \
+	ueventd-odm.rc
 
 # =============================================================================
 # Keymint
@@ -295,7 +282,7 @@ PRODUCT_PACKAGES += \
 # NFC
 # =============================================================================
 PRODUCT_PACKAGES += \
-    android.hardware.nfc-service.nxp \
+    android.hardware.nfc-service.st \
     com.android.nfc_extras \
     Tag
 

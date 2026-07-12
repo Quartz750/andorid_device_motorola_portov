@@ -1,1 +1,1 @@
-require board=portov
+require board=parrot|portov

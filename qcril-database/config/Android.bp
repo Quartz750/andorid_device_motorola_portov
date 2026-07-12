@@ -1,6 +1,6 @@
-perbuilt_etc {
+prebuilt_etc {
 	name: "15.1_config.sql",
 	src: "15.1_config.sql",
 	relative_install_path: "qcril_database/upgrade/config",
-	vendor: "true",
+	vendor: true,
 }
