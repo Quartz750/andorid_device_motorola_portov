@@ -1,1 +1,1 @@
-# andorid_device_motorola_portov(private)
+# andorid_device_motorola_portov
