@@ -12,8 +12,6 @@ vendor/etc/acdbdata/nn_ns_models/fai__4.8.4_0.0__3.0.0_0.0__eai_1.43_enpu2.pmd
 vendor/etc/acdbdata/nn_vad_models/fai__3.0.0_0.0__eai_1.36_enpu2.pmd
 vendor/etc/acdbdata/parrot_qrd/QRD_acdb_cal.acdb
 vendor/etc/acdbdata/parrot_qrd/QRD_workspaceFileXml.qwsp
-#vendor/etc/acdbdata/parrot_qrd_retin/QRD_acdb_cal.acdb
-#vendor/etc/acdbdata/parrot_qrd_retin/QRD_workspaceFileXml.qwsp
 
 # ADSP
 vendor/bin/adsprpcd
