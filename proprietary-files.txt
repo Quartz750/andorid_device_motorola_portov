@@ -79,18 +79,18 @@ vendor/etc/vintf/manifest/bluetooth_hci.xml|13a5f20e77b01b8f78b916c6efbb4cf6bafa
 vendor/etc/vintf/manifest/bluetooth_sar.xml|6ecdea14f258c198ec1234d966c410beb291236b
 vendor/etc/vintf/manifest/bttpi-saidl.xml|a49eea4c62be9c856dfa842db8f08d2a87ff21dd
 vendor/etc/vintf/manifest/manifest_btaudiocoreservices_qti.xml|99c1c1cef69952852d30be97dd58067471825cbc
-vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so|33fa5dfad99e1de144301e417bb603dd38c77570
+vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so|fad73e0a386ca16321a0851ce5750cb4eaa86380
 vendor/lib64/hw/android.hardware.bluetooth@aidl-impl-qti.so|53385c0413eb72788ce33a908e42c33622c35eab
 vendor/lib64/hw/mbedtls_qti.so|acefbe60ccc59621ae3b1a7c880979c9672c5997
 vendor/lib64/hw/vendor.qti.hardware.bluetooth_sar@aidl-impl.so|b930d1d7b829b8bdcbabeeeb8e2429f150a15269
 vendor/lib64/hw/vendor.qti.hardware.bttpi-impl.so|7feca794a783e37f986503d8c72d494ee6acae19
 vendor/lib64/libbtnv.so|c002576d44dc559b688bf1d78c5bf627720b4875
-vendor/lib64/libsoc_helper.so|fe54074bf6d9e37cd2c8c076a43e74f09526ba8a
+vendor/lib64/libsoc_helper.so|f7750e0a7f2b9426f493e896df04153122a16ccf
 vendor/lib64/vendor.qti.hardware.bluetooth_sar-V1-ndk.so|50c9ea0a88b168727957fb88e682c7a2afaed779
 vendor/lib64/vendor.qti.hardware.bttpi-V3-ndk.so|856786a9216b9679604906cbc3875dc2f0f64660
 
 # Bluetooth (A2DP) - from pdx257 72.1.A.2.127
-vendor/lib64/hw/android.hardware.bluetooth.audio-impl-qti.so|fad73e0a386ca16321a0851ce5750cb4eaa86380
+vendor/lib64/hw/android.hardware.bluetooth.audio-impl-qti.so|f7493d5079e037f101e5b6499b0d039b71536394
 vendor/lib64/hw/android.hardware.bluetooth.audio_sw.so;DISABLE_DEPS|765c54a411d07ac72b29f78f1f179a6503027e93
 vendor/lib64/hw/audio.bluetooth_qti.default.so|57d5f9e58ed25122c8c53a6b82679c1612135f76
 vendor/lib64/btaudio_offload_if.so|7d81f173716539e1b646bb461dc2f3ef0bfbe578
